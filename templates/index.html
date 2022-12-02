@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="theme-color" content="#0d1117">
+
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+    <link rel="manifest" href='/static/manifest.json?13'>
+
+    <style>
+        body{
+            background-color: #0d1117;
+            background-size: cover;
+            -webkit-tap-highlight-color: transparent;
+            background: #0d1117;
+
+            height: 100%;
+        }
+
+    
+
+        .box{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+            margin-top: 20px;
+        }
+
+        .block{
+            width:150px;
+            height:212px;
+
+            border:none;
+            border-radius: 5px;
+
+            background-color: #19202c;
+
+            cursor: pointer;
+
+            display: flex;
+            flex-direction: column;
+
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-top: 20px;
+        }
+
+        .img{
+            width:120px;
+            height:150px;
+
+            border:none;
+            border-radius: 5px;
+            
+            image-rendering: pixelated;
+
+
+            margin:0 auto;
+
+            margin-top: 15px;
+
+            user-select: none;
+        }
+
+        #name{
+            color:#fff;
+            font-size: 16px;
+
+            text-align: center;
+
+            user-select: none;
+
+            margin-top:12px;
+        }
+
+        .block:active{
+            transform: scale(0.99);
+        }  
+
+        #homepage_button{
+            width:55px;
+            height:53px;
+
+            border:none;
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            user-select: none;
+
+            background-color: #ffffff42;
+
+            position: fixed;
+
+            left:0;
+            right:0;
+
+            margin:0 auto;
+
+            bottom: 20px;
+        }
+
+        #home_icon{
+            width:25px;
+            height:25px;
+
+            margin:0 auto;
+        }
+
+        button:active{
+            transform: scale(0.98);
+        }
+
+        #m{
+            display: none;
+        }
+    </style>
+
+
+</head>
+<body>
+    
+    <script>
+        if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('{% url "sw.js" %}', { scope: '/' }).then(function(reg) {
+                    // registration worked
+                    console.log('Registration succeeded. Scope is ' + reg.scope);
+                }).catch(function(error) {
+                    // registration failed
+                    console.log('Registration failed with ' + error);
+                });
+        }
+        </script>
+
+    <div id="root"></div>
+
+    <script type="text/babel" src="static/js/react.js" id="react_src"></script>
+
+    <script>
+        
+        let react_src = `static/js/react.js?${new Date()}`;
+
+        document.getElementById('react_src').src = react_src;
+    </script>
+</body>
+</html>
